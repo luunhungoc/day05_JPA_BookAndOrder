@@ -1,6 +1,7 @@
 package jpa.config;
 
 
+import jpa.service.AccountService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -44,7 +45,7 @@ public class Config {
 
     final Properties additionalProperties() {
         final Properties hibernateProperties = new Properties();
-        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");//update
+        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create");//update
         hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
         hibernateProperties.setProperty("hibernate.show_sql", "true");
         hibernateProperties.setProperty("hibernate.format_sql", "true");
@@ -63,6 +64,25 @@ public class Config {
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
     }
+
+    // Set bean AccountService with platform transaction manager
+    @Bean
+    public AccountService accountService(JpaTransactionManager jpaTransactionManager){
+        AccountService accountService = new AccountService(jpaTransactionManager);
+        return accountService;
+    }
+
+    // Set bean AccountService using Annatation
+//    @Bean
+//    public AccountService accountService(){
+//        AccountService accountService = new AccountService();
+//        return accountService;
+//    }
+//    @Bean
+//    public AccountServiceImp accountServiceImp(){
+//        AccountServiceImp accountServiceImp = new AccountServiceImp();
+//        return accountServiceImp;
+//    }
 }
 
 

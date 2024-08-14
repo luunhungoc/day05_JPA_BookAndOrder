@@ -34,7 +34,9 @@ public class Main {
 
         System.out.println("=========");
 //        createNewOrder();
-        createNewOrderDetailsEntry();
+//        createNewOrderDetailsEntry();
+//        createNewOrderDetailsEntryWithNewOrder();
+//        List all order and order details in the database
 
     }
 
@@ -112,51 +114,55 @@ public class Main {
 //
 //
 //
-//    public static void createNewBookEntry(){
-//        CategoryEntity categoryEntity= new CategoryEntity();
-//        categoryEntity.setId(1);
-//
-//        BookEntity bookEntity=createNewBook();
-//        bookEntity.setCategory(categoryEntity);
-//        bookRepository.save(bookEntity);
-//    }
-//    public static void createNewBookEntryWithNewCategory(){
-//        CategoryEntity categoryEntity= createNewCategory();
-//        categoryRepository.save(categoryEntity);
-//
-//        BookEntity bookEntity=createNewBook();
-//        bookEntity.setCategory(categoryEntity);
-//        bookRepository.save(bookEntity);
-//    }
-//
-//    private static CategoryEntity createNewCategory() {
-//        CategoryEntity categoryEntity=new CategoryEntity();
-//        categoryEntity.setName("Marketing");
-//        categoryEntity.setDescription("Marketing books");
-//        return categoryEntity;
-//    }
-//
-//    private static BookEntity createNewBook() {
-//        BookDetailsEntity bookDetailsEntity = new BookDetailsEntity();
-//        bookDetailsEntity.setIsbn("ISIBF1219323");
-//        bookDetailsEntity.setNumberOfPage(23);
-//        bookDetailsEntity.setPrice(65);
-//        bookDetailsEntity.setPublishDate(LocalDate.now());
-//
-//        BookEntity bookEntity = new BookEntity();
-//        bookEntity.setName("Java A-Z");
-//        bookEntity.setAuthor("Roger");
-//        bookEntity.setBookDetails(bookDetailsEntity);
-//        bookDetailsEntity.setBook(bookEntity);
-//
-//        return bookEntity;
-//
-//    }
+    public static void createNewBookEntry(){
+        CategoryEntity categoryEntity= new CategoryEntity();
+        categoryEntity.setId(1);
+
+        BookEntity bookEntity=createNewBook();
+        bookEntity.setCategory(categoryEntity);
+        bookRepository.save(bookEntity);
+    }
+    public static void createNewBookEntryWithNewCategory(){
+        CategoryEntity categoryEntity= createNewCategory();
+        categoryRepository.save(categoryEntity);
+
+        BookEntity bookEntity=createNewBook();
+        bookEntity.setCategory(categoryEntity);
+        bookRepository.save(bookEntity);
+    }
+
+    private static CategoryEntity createNewCategory() {
+        CategoryEntity categoryEntity=new CategoryEntity();
+        categoryEntity.setName("Marketing");
+        categoryEntity.setDescription("Marketing books");
+        return categoryEntity;
+    }
+
+    private static BookEntity createNewBook() {
+        BookDetailsEntity bookDetailsEntity = new BookDetailsEntity();
+        bookDetailsEntity.setIsbn("ISIBF1219323");
+        bookDetailsEntity.setNumberOfPage(23);
+        bookDetailsEntity.setPrice(65);
+        bookDetailsEntity.setPublishDate(LocalDate.now());
+
+        BookEntity bookEntity = new BookEntity();
+        bookEntity.setName("Java A-Z");
+        bookEntity.setAuthor("Roger");
+        bookEntity.setBookDetails(bookDetailsEntity);
+        bookDetailsEntity.setBook(bookEntity);
+
+        return bookEntity;
+
+    }
 
 
 
 
 // ===========ORDERS============
+
+    public static void findAllOrdersAndOrderDetails(){
+
+    }
 
     public static void createNewOrderDetailsEntry(){
         OrderEntity orderEntity= createNewOrder();
@@ -166,30 +172,31 @@ public class Main {
         orderDetailsRepository.save(orderDetailsEntity);
     }
 
-//
-//    public static void createNewOrderDetailsEntryWithNewOrder(){
-//        OrderEntity orderEntity= createNewOrder();
-//        orderRepository.save(orderEntity);
-//
-//        OrderDetailsEntity orderDetailsEntity=createNewOrderDetails();
-//        orderDetailsEntity.setOrder(orderEntity);
-//        orderRepository.save(orderDetailsEntity);
-//    }
+
+    public static void createNewOrderDetailsEntryWithNewOrder(){
+        OrderEntity orderEntity= createNewOrder();
+        orderRepository.save(orderEntity);
+
+        OrderDetailsEntity orderDetailsEntity=createNewOrderDetails();
+        orderDetailsEntity.setOrder(orderEntity);
+        orderDetailsRepository.save(orderDetailsEntity);
+    }
 
         private static OrderEntity createNewOrder() {
             OrderEntity orderEntity=new OrderEntity();
 
             orderEntity.setOrderDate(LocalDate.now());
-            orderEntity.setCustomerName("Roger");
-            orderEntity.setCustomerAddress("USA");
+            orderEntity.setCustomerName("Nguyen Du");
+            orderEntity.setCustomerAddress("Vietnam");
+            orderRepository.save(orderEntity);
         return orderEntity;
     }
 
     private static OrderDetailsEntity createNewOrderDetails() {
         OrderDetailsEntity orderDetailsEntity = new OrderDetailsEntity();
-        orderDetailsEntity.setProductName("Java books");
-        orderDetailsEntity.setQuantity(23);
-        orderDetailsEntity.setUnitPrice(100);
+        orderDetailsEntity.setProductName("Poems");
+        orderDetailsEntity.setQuantity(1);
+        orderDetailsEntity.setUnitPrice(50);
 
 
         OrderEntity orderEntity = new OrderEntity();

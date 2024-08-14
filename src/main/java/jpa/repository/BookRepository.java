@@ -15,15 +15,12 @@ public interface BookRepository extends CrudRepository<BookEntity,Integer> {
     List<BookEntity> findByNameAndAuthor(String name,String author);
     List<BookEntity> findByNameOrAuthor(String name, String author);
     BookEntity findByBookDetailsIsbn(String isbn);
-//
-//
+
+
 //    List<BookEntity> findByBookDetailsPriceLessThan(int price);
 //    List<BookEntity> findByBookDetailsPriceLessThanEqual(int price);
 //    List<BookEntity> findByBookDetailsPriceGreaterThanEqual(int price);
-//
 //    List<BookEntity> findByPriceLessThan(int price);
-//
-    List<BookEntity> findByNameContaining(String name);
-//
-//    List<BookEntity> getAll();
+//    List<BookEntity> findByNameContaining(String name);
+
 }
