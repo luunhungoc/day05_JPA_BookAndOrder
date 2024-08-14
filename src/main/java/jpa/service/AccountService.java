@@ -21,7 +21,8 @@ public class AccountService {
         this.transactionManager = transactionManager;
     }
 
-   public void transferMoneyWithoutRollback(int sourceAccountId, int targetAccountId, double amount) {
+
+   public void transferMoneyRollback2(int sourceAccountId, int targetAccountId, double amount) {
         TransactionDefinition definition = new DefaultTransactionDefinition();
         TransactionStatus status = transactionManager.getTransaction(definition);
         try {

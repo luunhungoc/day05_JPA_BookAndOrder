@@ -17,9 +17,9 @@ public class MainTestTransaction {
     public static void main(String[] args) throws Exception {
 
         createNewAccount();
-//        accountService.transferMoneyRollback(1, 2, 150);
-//        accountService.transferMoneyWithoutRollback(2, 1, 150);
-        accountService.transferMoneyAnnotation(2, 1, 100);
+        accountService.transferMoneyRollback(1, 2, 150);
+//        accountService.transferMoneyRollback2(2, 1, 150);
+//        accountService.transferMoneyAnnotation(2, 1, 100);
     }
 
     public static void createNewAccount() {
