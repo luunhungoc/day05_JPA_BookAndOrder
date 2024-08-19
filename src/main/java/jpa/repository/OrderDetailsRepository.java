@@ -3,6 +3,8 @@ package jpa.repository;
 
 import jpa.entity.BookEntity;
 import jpa.entity.OrderDetailsEntity;
+import jpa.entity.OrderEntity;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +13,8 @@ import java.util.List;
 
 @Repository
 public interface OrderDetailsRepository extends CrudRepository<OrderDetailsEntity,Integer> {
+
+
 //    List<OrderDetailsEntity> findByAuthor(String author);
 //    List<OrderDetailsEntity> findByNameAndAuthor(String name,String author);
 //    List<OrderDetailsEntity> findByNameOrAuthor(String name, String author);

@@ -64,10 +64,18 @@ public class OrderEntity {
     public List<OrderDetailsEntity> getOrderDetailsEntityList() {
         return orderDetailsEntityList;
     }
-
     public void setOrderDetailsEntityList(List<OrderDetailsEntity> orderDetailsEntityList) {
         this.orderDetailsEntityList = orderDetailsEntityList;
     }
 
-
+    @Override
+    public String toString() {
+        return "OrderEntity{" +
+                "id=" + id +
+                ", orderDate=" + orderDate +
+                ", customerName='" + customerName + '\'' +
+                ", customerAddress='" + customerAddress + '\'' +
+                 orderDetailsEntityList +
+                '}';
+    }
 }

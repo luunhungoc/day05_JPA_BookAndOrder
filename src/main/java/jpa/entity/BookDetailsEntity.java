@@ -77,4 +77,13 @@ public class BookDetailsEntity {
         this.publishDate = publishDate;
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+                " isbn=" + isbn + '\'' +
+                ", numberOfPage=" + numberOfPage +
+                ", price=" + price +
+                ", publishDate=" + publishDate+
+                '}';
+    }
 }

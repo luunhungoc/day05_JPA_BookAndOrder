@@ -1,6 +1,7 @@
 package jpa.repository;
 
 
+import jpa.entity.OrderEntity;
 import org.springframework.data.repository.CrudRepository;
 import jpa.entity.BookEntity;
 import org.springframework.data.jpa.repository.Query;
@@ -16,11 +17,8 @@ public interface BookRepository extends CrudRepository<BookEntity,Integer> {
     List<BookEntity> findByNameOrAuthor(String name, String author);
     BookEntity findByBookDetailsIsbn(String isbn);
 
-
-//    List<BookEntity> findByBookDetailsPriceLessThan(int price);
-//    List<BookEntity> findByBookDetailsPriceLessThanEqual(int price);
-//    List<BookEntity> findByBookDetailsPriceGreaterThanEqual(int price);
-//    List<BookEntity> findByPriceLessThan(int price);
-//    List<BookEntity> findByNameContaining(String name);
+    @Query(value="select * from book join bookDetails where bookDetails.price <?1 and book.id = bookDetails.id",nativeQuery=true)
+    List<BookEntity> findByPriceLessThan(int price);
+    List<BookEntity> findByNameContaining(String name);
 
 }

@@ -56,5 +56,11 @@ public class CategoryEntity {
         this.bookEntityList = bookEntityList;
     }
 
-
+    @Override
+    public String toString() {
+        return "{" +
+                "description='" + description + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
